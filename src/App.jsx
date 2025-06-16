@@ -185,14 +185,14 @@ const App = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((item) => (
-                    <tr key={item.id}>
-                      <td style={styles.td}>{item.id}</td>
+                  {data.map((item, index) => (
+                    <tr key={index}>
+                      <td style={styles.td}>{index + 1}</td>
                       <td style={{ ...styles.td, ...styles.code }}>
-                        {item.code.split('\n').map((line, index) => (
-                          <React.Fragment key={index}>
+                        {item.code.split('\n').map((line, i) => (
+                          <React.Fragment key={i}>
                             {line}
-                            {index < item.code.split('\n').length - 1 && <br />}
+                            {i < item.code.split('\n').length - 1 && <br />}
                           </React.Fragment>
                         ))}
                       </td>
